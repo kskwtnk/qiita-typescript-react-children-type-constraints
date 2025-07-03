@@ -1,9 +1,9 @@
-import type { InputHTMLAttributes, ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { Children, isValidElement, useId } from "react";
 
 type Props = {
   children: ReactNode;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & ComponentProps<"input">;
 
 const isValidChild = (child: unknown) => {
   return (

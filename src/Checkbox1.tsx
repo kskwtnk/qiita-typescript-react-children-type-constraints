@@ -1,9 +1,9 @@
-import type { InputHTMLAttributes, ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { useId } from "react";
 
 type Props = {
   children: ReactNode;
-} & InputHTMLAttributes<HTMLInputElement>;
+} & ComponentProps<"input">;
 
 export function Checkbox1({ children, ...props }: Props) {
   const id = useId();

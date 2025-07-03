@@ -25,15 +25,17 @@ export function Checkbox4({ contents, ...props }: Props) {
     <div>
       <input type="checkbox" id={id} {...props} />
       <label htmlFor={id}>
-        {contents.map((content, index) =>
-          isLink(content) ? (
-            <a key={index} {...content}>
-              {content.text}
-            </a>
-          ) : (
-            <Fragment key={index}>{content.text}</Fragment>
-          )
-        )}
+        {contents.map((content, index) => {
+          if (isLink(content)) {
+            const { text, ...restProps } = content;
+            return (
+              <a key={index} {...restProps}>
+                {text}
+              </a>
+            );
+          }
+          return <Fragment key={index}>{content.text}</Fragment>;
+        })}
       </label>
     </div>
   );
